@@ -1,0 +1,21 @@
+
+
+There are 3 mean packages in Cucumber
+
+1 Runner
+The Runner class will make connection with Feature file using Cucumber Options- feature
+Also using Cucumber Options- glue making connection with StepDefinitions
+
+
+2 Feature Files
+We hava Scenarios here
+Given
+When
+Then
+
+
+3 StepDefinitions
+Java Code for each scenario steps
+
+
+
