@@ -6,12 +6,14 @@ import io.cucumber.java.en.*;
 public class LoginStepDefs {
 
     @Given("the user is on the login page")
-    public void the_user_is_on_the_login_page() {
+    public void the_user_is_on_the_login_page() throws InterruptedException {
         System.out.println("I open browser and navigate to vytrack login page");
+        Thread.sleep(5000);
     }
 
     @When("he user enters the dirver information")
-    public void he_user_enters_the_dirver_information() {
+    public void he_user_enters_the_dirver_information() throws InterruptedException {
+        Thread.sleep(3000);
         System.out.println("I put user1 username and UserUser123 password and click login button");
 
     }
@@ -23,7 +25,8 @@ public class LoginStepDefs {
     }
 
     @When("the user enters the sales manager information")
-    public void the_user_enters_the_sales_manager_information() {
+    public void the_user_enters_the_sales_manager_information() throws InterruptedException {
+        Thread.sleep(2000);
         System.out.println("I Enter sales manager username and password here");
     }
 
