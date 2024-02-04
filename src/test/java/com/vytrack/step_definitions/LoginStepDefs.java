@@ -37,6 +37,13 @@ public class LoginStepDefs {
 
     }
 
+    @Given("the user enters the sale manager information")
+    public void the_user_enters_the_sale_manager_information() {
+
+        System.out.println("I Just login as Sales Manager");
+
+    }
+
 
 
 }

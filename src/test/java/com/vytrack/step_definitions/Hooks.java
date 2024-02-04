@@ -16,4 +16,14 @@ public class Hooks {
     }
 
 
+
+    @Before("@db")
+    public void setUpDb(){
+        System.out.println("\tConnecting to the Data base.......");
+    }
+
+    @After("@db")
+    public void tearDownDb(){
+        System.out.println("\t Disconnecting to the Data Base.......");
+    }
 }
