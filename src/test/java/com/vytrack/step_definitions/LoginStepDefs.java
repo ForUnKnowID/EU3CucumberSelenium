@@ -1,39 +1,62 @@
 package com.vytrack.step_definitions;
 
 
+import com.vytrack.pages.LoginPage;
+import com.vytrack.utilities.BrowserUtils;
+import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.Driver;
 import io.cucumber.java.en.*;
+import org.apache.hc.core5.util.Asserts;
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+
+import java.lang.module.Configuration;
 
 public class LoginStepDefs {
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() throws InterruptedException {
-        System.out.println("I open browser and navigate to vytrack login page");
-        Thread.sleep(5000);
+
+        String url = ConfigurationReader.get("url");
+//        WebDriver driver = Driver.get();
+        Driver.get().get(url);
+
     }
 
     @When("he user enters the dirver information")
     public void he_user_enters_the_dirver_information() throws InterruptedException {
-        Thread.sleep(3000);
-        System.out.println("I put user1 username and UserUser123 password and click login button");
-
+        String username = ConfigurationReader.get("driver_username");
+        String password = ConfigurationReader.get("driver_password");
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
     }
 
     @Then("the user should be able to login")
-    public void the_user_should_be_able_to_login() {
-        System.out.println("I verify that title changed to Dashboard");
+    public void the_user_should_be_able_to_login() throws InterruptedException {
+        BrowserUtils.waitFor(2);
+        String acTitle = Driver.get().getTitle();
+        Assert.assertEquals(acTitle,"Dashboard");
 
     }
 
     @When("the user enters the sales manager information")
     public void the_user_enters_the_sales_manager_information() throws InterruptedException {
-        Thread.sleep(2000);
-        System.out.println("I Enter sales manager username and password here");
+
+        String username = ConfigurationReader.get("salesmanager_username");
+        String password = ConfigurationReader.get("salesmanager_password");
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
     }
 
 
     @When("the user enters the store manager information")
     public void the_user_enters_the_store_manager_information() {
-        System.out.println("I just Login in as store manager");
+        String username = ConfigurationReader.get("storemanager_username");
+        String password = ConfigurationReader.get("storemanager_password");
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
 
     }
 
