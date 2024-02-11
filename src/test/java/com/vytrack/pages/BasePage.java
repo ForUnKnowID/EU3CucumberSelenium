@@ -1,7 +1,5 @@
 package com.vytrack.pages;
 
-import com.cydeo.utilities.BrowserUtils;
-import com.cydeo.utilities.Driver;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.By;
